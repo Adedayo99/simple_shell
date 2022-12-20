@@ -58,17 +58,29 @@ char **char_colon(char *str)
 * Return: pointer to editted string
 */
 
-char *char_hash(char *str)
+char **char_hash(char *str)
 {
 	int i = 0;
+	int flag = 0;
+	char **strings = malloc(sizeof(char *) * 2);
 
 	while (str[i] != '\0')
 	{
 		if (str[i] == '#')
-		*str[i] = '\0';
+		{
+			*str[i] = '\0';
+			flag = 1;
+		}
 	}
 
-	return (str);
+	if (flag == 1)
+	{
+		strings[0] = malloc(sizeof(char) * (strlen(str) + 1));
+		strcpy(strings[0], str);
+		strings[1] = NULL;
+	}
+
+	return (strings);
 	// string has been essentially truncated. we execute only until '\0' now
 }
 
