@@ -15,4 +15,15 @@ void cmd_exec(char **argv, char *cmd_path);
 char *get_path(char *cmd);
 
 
+
+
+
+
+
+typedef struct builtins{
+	char *name;
+	int(*func)(char *arg);
+	} built_t;
+
+
 #endif
