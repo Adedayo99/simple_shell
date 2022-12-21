@@ -35,6 +35,15 @@ int main(void)
 		argv = tokenizer(buf);
 		cmd_status = cmd_check(argv[0]);
 
+		if (strcmp(argv[0], "setenv") == 0)
+		env_set(argv[1], argv[2]);
+
+		if (strcmp(argv[0], "unsetenv") == 0)
+		env_unset(argv[1]);
+
+		if (strcmp(argv[0], "env") == 0)
+		env();
+
 		if (cmd_status == 0)
 		{
 			fork_val = fork();
