@@ -40,9 +40,6 @@ char **tokenizer(char *buf)
 		i++;
 	}
 	argv[i] = NULL;
-	printf("FROM TOKENIZER\n");
-	for (i = 0; argv[i] != NULL; i++)
-	printf("%s STRLEN: %ld\n",argv[i], strlen(argv[i]));
 
 	return (argv);
 
