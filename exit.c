@@ -6,8 +6,9 @@
 */
 #include "shell.h"
 
-void exit(int status)
+void myexit(int status)
 {
+	int i;
 
 	fflush(stdin);
 	fflush(NULL);

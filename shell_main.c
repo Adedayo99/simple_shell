@@ -47,16 +47,15 @@ int main(void)
 		env();
 
 		if (strcmp(argv[0] , "exit") == 0 && argv[1] == NULL)
-		exit(1000);
+		myexit(1000);
 
 		if (strcmp(argv[0], "exit") == 0 && argv[1] != NULL)
-		exit((int) *argv[1]);
+		myexit((int) *argv[1]);
 
 		if (strcmp(argv[0], "cd") == 0)
 		cd(argv[1]);
 
 		if (executables_check(argv[0]) == 0)
-
 		{
 			fork_val = fork();
 

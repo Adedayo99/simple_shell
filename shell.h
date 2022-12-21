@@ -14,7 +14,7 @@ int executables_check(char *token);
 int builtins_check(char *token);
 void cmd_exec(char **argv, char *cmd_path);
 char *get_path(char *cmd);
-void exit(int status);
+void myexit(int status);
 
 extern char **environ;
 int env_set(char *var, char *value);

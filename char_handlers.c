@@ -68,7 +68,7 @@ char **char_hash(char *str)
 	{
 		if (str[i] == '#')
 		{
-			*str[i] = '\0';
+			str[i] = '\0';
 			flag = 1;
 		}
 	}
@@ -125,8 +125,8 @@ char **char_ampersand(char *str)
 		token = strtok(str, "&&");
 		while (token != NULL)
 		{
-			string[i] = malloc(sizeof(char) * strlen(token));
-			strcpy(string[i], token);
+			strings[i] = malloc(sizeof(char) * strlen(token));
+			strcpy(strings[i], token);
 			token = strtok(NULL, "&&");
 			i++;
 		}
@@ -175,14 +175,14 @@ char **char_line(char *str)
 
 	if (temp_str != NULL)
 	{
-		strings = malloc(sizeof(char *) * (ampersand_count + 2));
+		strings = malloc(sizeof(char *) * (line_count + 2));
 		
 		i = 0;
 		token = strtok(str, "||");
 		while (token != NULL)
 		{
-			string[i] = malloc(sizeof(char) * strlen(token));
-			strcpy(string[i], token);
+			strings[i] = malloc(sizeof(char) * strlen(token));
+			strcpy(strings[i], token);
 			token = strtok(NULL, "||");
 			i++;
 		}
