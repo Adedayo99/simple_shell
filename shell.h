@@ -10,7 +10,8 @@
 #include <sys/stat.h>
 
 char **tokenizer(char *buf);
-int cmd_check(char *token);
+int executables_check(char *token);
+int builtins_check(char *token);
 void cmd_exec(char **argv, char *cmd_path);
 char *get_path(char *cmd);
 void exit(int status);
@@ -21,10 +22,7 @@ int env(void);
 int env_unset(char *var);
 int cd(char *arg);
 
-typedef struct builtins{
-	char *name;
-	int(*func)(char *arg);
-	} built_t;
+
 
 
 #endif

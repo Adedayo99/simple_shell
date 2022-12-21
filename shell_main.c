@@ -9,12 +9,11 @@
 int main(void)
 {
 	int val, i, fork_val;
-	int cmd_status;
 	char *buf = NULL;
 	size_t n = 0;
 	char **argv = NULL;
 	char *cmd_path = NULL;
-
+	
 	while (1)
 	{
 		write(STDOUT_FILENO,"($)", 3);
@@ -33,7 +32,10 @@ int main(void)
 		buf = &buf[i];
 
 		argv = tokenizer(buf);
-		cmd_status = cmd_check(argv[0]);
+		/* execution begins */
+
+
+
 
 		if (strcmp(argv[0], "setenv") == 0)
 		env_set(argv[1], argv[2]);
@@ -53,7 +55,7 @@ int main(void)
 		if (strcmp(argv[0], "cd") == 0)
 		cd(argv[1]);
 
-		if (cmd_status == 0)
+		if (executables_check(argv[0]) == 0)
 
 		{
 			fork_val = fork();
@@ -81,17 +83,44 @@ int main(void)
 
 
 /**
-* cmd_check - to check if command is valid
+* executables_check - to check if command is valid
 *@token: first token from input
 *
-* Return: 0 to indicate success
+* Return: 0 to indicate executable present
 */
 
-int cmd_check(char *token)
+int executables_check(char *token)
 {
 	int flag = 1;
 	int i = 0;
 	char *args[] = {"ls", "touch", "pwd", "rm", "echo", "cat", NULL};
+
+	while (args[i] != NULL)
+	{
+		flag = strcmp(args[i], token);
+
+		if (flag == 0)
+		return (flag);
+
+		i++;
+	}
+
+	return (flag);
+}
+
+
+/**
+* builtins_check - to check if command is valid
+*@token: first token from input
+*
+* Return: 0 to indicate builtin present
+*/
+
+int builtins_check(char *token)
+{
+	int flag = 1;
+	int i = 0;
+	char *args[] = {"env", "setenv", "unsetenv", "cd", NULL};
 
 	while (args[i] != NULL)
 	{
