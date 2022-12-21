@@ -16,10 +16,6 @@ void myexit(int status)
 	for (i = 0; i < 4; i++)
 	close(i);
 
-	if (status == 1000)
-	_exit;
-
-	else
 	_exit(status);
 
 }
