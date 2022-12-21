@@ -13,12 +13,13 @@ char **tokenizer(char *buf);
 int cmd_check(char *token);
 void cmd_exec(char **argv, char *cmd_path);
 char *get_path(char *cmd);
+void exit(int status);
 
 extern char **environ;
 int env_set(char *var, char *value);
 int env(void);
 int env_unset(char *var);
-
+int cd(char *arg);
 
 typedef struct builtins{
 	char *name;

@@ -44,7 +44,17 @@ int main(void)
 		if (strcmp(argv[0], "env") == 0)
 		env();
 
+		if (strcmp(argv[0] , "exit") == 0 && argv[1] == NULL)
+		exit(1000);
+
+		if (strcmp(argv[0], "exit") == 0 && argv[1] != NULL)
+		exit((int) *argv[1]);
+
+		if (strcmp(argv[0], "cd") == 0)
+		cd(argv[1]);
+
 		if (cmd_status == 0)
+
 		{
 			fork_val = fork();
 

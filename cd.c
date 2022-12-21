@@ -11,13 +11,14 @@ int cd(char *arg)
 	char *dir;
 	char *env;
 
+
 	if (arg == NULL)
 	{
 		dir = getenv("HOME");
 		if (chdir(dir) == 0)
 		{
 			env = getenv("PWD");
-			*env = *dir;
+			env = dir;
 		}
 
 		else
@@ -25,7 +26,7 @@ int cd(char *arg)
 
 	}
 
-	if (*arg == '-')
+	if (arg != NULL && strcmp(arg, "-") == 0)
 	{
 		dir = getenv("OLDPWD");
 		if (chdir(dir) == 0)
@@ -40,8 +41,8 @@ int cd(char *arg)
 	}
 
 
-	if (arg != NULL)
-	{
+	if (arg != NULL && strlen(arg) > 1)
+	{	
 		char *env2;
 		char buf[200];
 		size_t n = 200;
@@ -50,13 +51,14 @@ int cd(char *arg)
 		{
 			getcwd(buf, n);
 			env2 = getenv("PWD");
-
-			*env2 = *env;
+			strcpy(env2, buf);
+			*env2 = *buf; 
 		}
 
 		else
 		perror("./shell");
 	}
+
 
 	return (0);
 }
