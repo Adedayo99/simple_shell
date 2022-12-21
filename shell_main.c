@@ -72,7 +72,7 @@ int cmd_check(char *token)
 {
 	int flag = 1;
 	int i = 0;
-	char *args[] = {"ls","clear", "touch", "pwd", "rm", "echo", "cat", NULL};
+	char *args[] = {"ls", "touch", "pwd", "rm", "echo", "cat", NULL};
 
 	while (args[i] != NULL)
 	{

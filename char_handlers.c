@@ -122,7 +122,7 @@ char **char_ampersand(char *str)
 		strings = malloc(sizeof(char *) * (ampersand_count + 2));
 		
 		i = 0;
-		token = strtok(strings, "&&");
+		token = strtok(str, "&&");
 		while (token != NULL)
 		{
 			string[i] = malloc(sizeof(char) * strlen(token));
@@ -178,7 +178,7 @@ char **char_line(char *str)
 		strings = malloc(sizeof(char *) * (ampersand_count + 2));
 		
 		i = 0;
-		token = strtok(strings, "||");
+		token = strtok(str, "||");
 		while (token != NULL)
 		{
 			string[i] = malloc(sizeof(char) * strlen(token));

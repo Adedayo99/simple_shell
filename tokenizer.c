@@ -10,7 +10,6 @@ char **tokenizer(char *buf)
 {
 	int i;
 	char *buf_cpy;
-	int len;
 	char *token;
 	int token_count = 0;
 	char *delim = " ";
