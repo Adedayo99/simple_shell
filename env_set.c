@@ -2,15 +2,14 @@
 * env_set - set or modify environment variable
 *@var: environment variable to add or modify
 *@value: value to set variable to
-* 
+*
 * Return: int value to indicate success
 */
 #include "shell.h"
 
 int env_set(char *var, char *value)
 {
-	int i;
-	int len1, len2;
+	int i, len1, len2;
 	int env_count = 0;
 	char *temp_env = NULL;
 	char **env = environ;
@@ -23,11 +22,10 @@ int env_set(char *var, char *value)
 		{
 			temp_env = getenv(var);
 			*temp_env = *value;
-		 	flag = 1;
+			flag = 1;
 		}
 		env_count++;
 	}
-
 	if (flag == 0)
 	{
 		temp = malloc(sizeof(char *) * (env_count + 2));
@@ -37,7 +35,6 @@ int env_set(char *var, char *value)
 			temp[i] = malloc(sizeof(char) * strlen(environ[i]));
 			strcpy(temp[i], environ[i]);
 		}
-
 		len1 = strlen(var);
 		len2 = strlen(value);
 		temp[i] = malloc(sizeof(char) *  (len1 + len2 + 2));
@@ -48,9 +45,7 @@ int env_set(char *var, char *value)
 		temp[i + 1] = NULL;
 		env = temp;
 	}
-
 	environ = env;
-
 	return (0);
 }
 

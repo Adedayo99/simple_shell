@@ -14,7 +14,7 @@ int main(void)
 	char **argv = NULL;
 	char *cmd_path = NULL;
 	
-	while (1)
+	while(1)
 	{
 		write(STDOUT_FILENO,"($)", 3);
 		val = getline(&buf,&n, stdin);
@@ -92,7 +92,7 @@ int executables_check(char *token)
 {
 	int flag = 1;
 	int i = 0;
-	char *args[] = {"ls", "touch", "pwd", "rm", "echo", "cat", NULL};
+	char *args[] = {"ls","/bin/ls", "touch", "pwd", "rm", "echo", "cat", NULL};
 
 	while (args[i] != NULL)
 	{
