@@ -15,31 +15,18 @@ int cd(char *arg)
 	if (arg == NULL)
 	{
 		dir = getenv("HOME");
-		if (chdir(dir) == 0)
-		{
-			env = getenv("PWD");
-			env = dir;
-		}
-
-		else
-		perror("./shell");
-
+		chdir(dir);
+		env = getenv("PWD");
+		env = dir;
 	}
 
 	if (arg != NULL && strcmp(arg, "-") == 0)
 	{
 		dir = getenv("OLDPWD");
-		if (chdir(dir) == 0)
-		{
-			env = getenv("PWD");
-			*env = *dir;
-		}
-
-		else
-		perror("./shell");
-
+		chdir(dir);
+		env = getenv("PWD");
+		*env = *dir;
 	}
-
 
 	if (arg != NULL && strlen(arg) > 1)
 	{	
@@ -47,18 +34,13 @@ int cd(char *arg)
 		char buf[200];
 		size_t n = 200;
 
-		if (chdir(arg) == 0)
-		{
-			getcwd(buf, n);
-			env2 = getenv("PWD");
-			strcpy(env2, buf);
-			*env2 = *buf; 
-		}
-
-		else
-		perror("./shell");
+		chdir(arg);
+		
+		getcwd(buf, n);
+		env2 = getenv("PWD");
+		strcpy(env2, buf);
+		*env2 = *buf; 
 	}
-
-
+	
 	return (0);
 }
