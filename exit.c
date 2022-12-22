@@ -1,5 +1,5 @@
 /**
-* exit - terminates the shell program
+* myexit - terminates the shell program
 *@status: return value to parent
 *
 * Return: void

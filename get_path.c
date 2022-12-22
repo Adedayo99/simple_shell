@@ -1,4 +1,4 @@
-/*
+/**
 * get_path - function to obtain full path of command
 *@token: input command
 *

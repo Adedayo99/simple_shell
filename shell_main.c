@@ -1,5 +1,5 @@
 /**
-* shell_main - mother function for simple shell
+* main - mother function for simple shell
 *@void: no inputs
 *
 * Return: int value for success

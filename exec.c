@@ -1,4 +1,4 @@
-/*
+/**
 * cmd_exec - executed checked command using execve
 *@argv: pointer to array of string inputs
 *
